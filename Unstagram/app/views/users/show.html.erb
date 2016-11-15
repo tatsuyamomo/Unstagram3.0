@@ -1,0 +1,17 @@
+<div class = "profile">
+<p id="notice"><%= notice %></p>
+
+<h1>Profile</h1>
+<%= image_tag 'default_image.jpg',class:"profile_image" %>
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+<%= link_to "プロフィール編集",edit_user_registration_path %>
+</div>
+<!--ここから下に投稿した画像一覧を表示-->

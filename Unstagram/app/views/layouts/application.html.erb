@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Unstagram</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+
+<div class = "header">
+	<div class = "header-left">
+		<%= link_to "Unstagram",root_path,class:"header-link" %>
+	</div>
+	<div class = "header-right">
+		<% if user_signed_in? %>
+			<li><%= link_to current_user.email,user_path(current_user.id),class:"header-link" %></li>
+			<li><%= link_to "ユーザ一覧",users_path,class:"header-link" %></li>
+			<li><%= link_to "ログアウト",destroy_user_session_path,method:'delete',class:"header-link" %></li>
+		<% else %>
+			<li><%= link_to "ログイン",new_user_session_path,class:"header-link" %></li>
+		<% end %>
+	</div>
+</div>
+<%= yield %>
+
+</body>
+
+</html>

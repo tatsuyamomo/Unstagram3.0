@@ -1,0 +1,11 @@
+<% if !user_signed_in? %>
+<div class = "top-wrapper">
+	<div class = "top-wrapper-content">
+		<h1>Unstagram</h1>
+		<p>写真を投稿して思い出を共有しませんか？</p>
+		<%= link_to "新規登録",new_user_registration_path,class:"btn sign-up-btn" %>
+	</div>
+</div>
+<% else %>
+<h1>ここにはタイムラインを作る予定！</h1>
+<% end %>
