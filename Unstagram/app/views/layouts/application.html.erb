@@ -15,7 +15,8 @@
 	</div>
 	<div class = "header-right">
 		<% if user_signed_in? %>
-			<li><%= link_to current_user.email,user_path(current_user.id),class:"header-link" %></li>
+			<li><%= link_to "マイページ",user_path(current_user.id),class:"header-link" %></li>
+			<li><%= link_to "新規投稿",new_note_path,class:"header-link" %></li>
 			<li><%= link_to "ユーザ一覧",users_path,class:"header-link" %></li>
 			<li><%= link_to "ログアウト",destroy_user_session_path,method:'delete',class:"header-link" %></li>
 		<% else %>

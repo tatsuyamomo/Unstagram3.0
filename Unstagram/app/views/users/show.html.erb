@@ -1,17 +1,28 @@
 <div class = "profile">
-<p id="notice"><%= notice %></p>
+	<p id="notice"><%= notice %></p>
 
-<h1>Profile</h1>
-<%= image_tag 'default_image.jpg',class:"profile_image" %>
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+	<h1>Profile</h1>
+	<%= image_tag 'default_image.jpg',class:"profile_image" %>
+	<p>
+  		<strong>Name:</strong>
+  		<%= @user.name %>
+	</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-<%= link_to "プロフィール編集",edit_user_registration_path %>
+	<p>
+  		<strong>Email:</strong>
+  		<%= @user.email %>
+	</p>
+	<% if current_user.id == @user.id %>
+		<%= link_to "プロフィール編集",edit_user_registration_path %>
+	<% end %>
 </div>
+
+<div class = "Notelist">
 <!--ここから下に投稿した画像一覧を表示-->
+	<div class = "listed-content">
+		<% @notes.each do |note| %>
+			<li><%= link_to note.title,note_path(note.id) %></li>
+			<li><%= image_tag "/user_images/#{note.image}",class:"listed-image" %></li>
+		<% end %>
+	</div>
+</div>
